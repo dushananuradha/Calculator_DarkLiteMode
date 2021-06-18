@@ -1,0 +1,5 @@
+minmax(min, max)
+Is a functional notation that defines a size range, greater than or equal to min, and less than or equal to max. If max is smaller than min, then max is ignored and the function is treated as min. As a maximum, a <flex> value sets the track’s flex factor. It is invalid as a minimum.
+
+grid-column: 1 / -1;
+From column #1 to last column
