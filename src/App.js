@@ -8,11 +8,12 @@ function App() {
   const [currentOperand, setCurrentOperand] = useState('');
   const [operation, setOperation] = useState(null);
   const [currentOperandTextElement, setCurrentOperandTextElement] = useState('');
-  const [previousOperandTextElement, setPreviousOperandTextElement] = useState('');
   const [darkMode, setDarkMode] = useState(false);
 
+// Calculator should update even one of previousOperand, currentOperand, operation is updated
   useEffect(() => {
     updateDisplay();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [previousOperand, currentOperand, operation])
 
   const compute = () => {
@@ -57,7 +58,6 @@ function App() {
  
 
   const appendNumber = (number) => {
-
     if (number === '.' && currentOperand.includes('.')) return
     setCurrentOperand( currentOperand.toString() + number.toString() );
     console.log(number);
@@ -95,13 +95,6 @@ function App() {
 
   const updateDisplay = () => {
     setCurrentOperandTextElement( getDisplayNumber(currentOperand) )
-    
-    if (operation != null) {
-      setPreviousOperandTextElement(`${getDisplayNumber(previousOperand)} ${operation}` )
-        
-    } else {
-      setPreviousOperandTextElement('')
-    }
   }
 
   const handleNumberClick = (number) => {
@@ -133,7 +126,7 @@ function App() {
       <div className={`${darkMode ? 'dark' : 'lite'} container`}>
         <div className="numberPad">
           <div className="output">
-            <div className={`${darkMode ? 'dark-text' : 'lite-text'} previous-operand`}>{previousOperand}</div>
+            <div className={`${darkMode ? 'darkText' : 'liteText'} previousOperand`}>{previousOperand}</div>
             <div className="current-operand">{currentOperandTextElement}</div>
             <hr className="line1"/>
           </div>
@@ -163,8 +156,8 @@ function App() {
           <div className="data-eqaul" onClick={handleEqual}>=</div>
 
           {/* Footer */}
-          <div className="modeSymbol1"style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</div>
-            <div className="switch-checkbox">
+          <div className="liteModeSymbol"style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</div>
+            <div className="modeSelector">
               <label className="switch">
                 <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
                 <div className="slider round"> </div>
