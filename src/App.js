@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Number from './Number';
 import Operator from './Operator';
 import './App.css';
@@ -10,10 +10,10 @@ function App() {
   const [currentOperandTextElement, setCurrentOperandTextElement] = useState('');
   const [darkMode, setDarkMode] = useState(false);
 
-// Calculator should update even one of previousOperand, currentOperand, operation is updated
+  // Calculator should update even one of previousOperand, currentOperand, operation is updated
   useEffect(() => {
     updateDisplay();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [previousOperand, currentOperand, operation])
 
   const compute = () => {
@@ -37,11 +37,11 @@ function App() {
       default:
         return
     }
- 
+
     setCurrentOperand(computation);
     setOperation(null)
     setPreviousOperand('')
-  } 
+  }
 
   const setPlusOrMinus = () => {
     if (currentOperand.charAt(0) === "-") {
@@ -53,21 +53,21 @@ function App() {
 
   const setPercentageValue = () => {
     previousOperand ? setCurrentOperand(String((parseFloat(currentOperand) / 100) * previousOperand))
-    : setCurrentOperand(String(parseFloat(currentOperand) / 100));
+      : setCurrentOperand(String(parseFloat(currentOperand) / 100));
   };
- 
+
 
   const appendNumber = (number) => {
     if (number === '.' && currentOperand.includes('.')) return
-    setCurrentOperand( currentOperand.toString() + number.toString() );
+    setCurrentOperand(currentOperand.toString() + number.toString());
     console.log(number);
   }
 
   const chooseOperation = (newOperation) => {
     console.log('chooseOperation', newOperation);
-    
-    if (currentOperand === '') return    
-    
+
+    if (currentOperand === '') return
+
     if (previousOperand !== '') {
       compute()
     }
@@ -94,7 +94,7 @@ function App() {
   }
 
   const updateDisplay = () => {
-    setCurrentOperandTextElement( getDisplayNumber(currentOperand) )
+    setCurrentOperandTextElement(getDisplayNumber(currentOperand))
   }
 
   const handleNumberClick = (number) => {
@@ -102,7 +102,7 @@ function App() {
   }
 
   const handleOperatorClick = (number) => {
-    chooseOperation(number); 
+    chooseOperation(number);
   }
 
   const handleEqual = () => {
@@ -116,29 +116,33 @@ function App() {
   }
 
   const handleClear = () => {
-    clear(); 
-  } 
+    clear();
+  }
 
 
   return (
-    
+
     <div >
       <div className={`${darkMode ? 'dark' : 'lite'} container`}>
-        <div className="numberPad">
+        <div data-testId="numberPad" className="numberPad">
           <div className="output">
             <div className={`${darkMode ? 'darkText' : 'liteText'} previousOperand`}>{previousOperand}</div>
             <div className="current-operand">{currentOperandTextElement}</div>
-            <hr className="line1"/>
+            <hr className="line1" />
           </div>
-          
-          <Operator operator="AC" onClick={handleClear}/>
+
+          <Operator operator="AC" onClick={handleClear} />
           <Operator operator="±" onClick={setPlusOrMinus} />
           <Operator operator="%" onClick={setPercentageValue} />
           <Operator operator="÷" onClick={handleOperatorClick} />
+          <div data-testId="btn.4">
+            <Number number={"7"} onClick={handleNumberClick} />
+          </div>
+          <div data-testId="btn.8">
+            <Number number={"8"} onClick={handleNumberClick} />
+          </div>
 
-          <Number number={"7"} onClick={handleNumberClick} />
-          <Number number={"8"} onClick={handleNumberClick} />
-          <Number number={"9"} onClick={handleNumberClick} />
+          <Number number={"25"} onClick={handleNumberClick} />
           <Operator operator="x" onClick={handleOperatorClick} />
 
           <Number number={"4"} onClick={handleNumberClick} />
@@ -156,20 +160,20 @@ function App() {
           <div className="data-eqaul" onClick={handleEqual}>=</div>
 
           {/* Footer */}
-          <div className="liteModeSymbol"style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</div>
-            <div className="modeSelector">
-              <label className="switch">
-                <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
-                <div className="slider round"> </div>
-              </label>
-            </div>
+          <div className="liteModeSymbol" style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</div>
+          <div className="modeSelector">
+            <label className="switch">
+              <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
+              <div className="slider round"> </div>
+            </label>
+          </div>
           <div className="modeSymbol2" style={{ color: darkMode ? "#c96dfd" : "grey" }}>☽</div>
         </div>
-        
+
       </div>
-      
+
     </div>
-    
+
 
   );
 }
