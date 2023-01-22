@@ -159,7 +159,7 @@ function App() {
           <div className="modeSelector">
             <label className="switch">
               <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
-              <div test-id='theme.slider' className="slider round"> </div>
+              <div test-id='theme-slider' className="slider round"> </div>
             </label>
           </div>
           <div className="modeSymbol2" style={{ color: darkMode ? "#c96dfd" : "grey" }}>☽</div>
