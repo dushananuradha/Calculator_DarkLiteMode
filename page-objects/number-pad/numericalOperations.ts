@@ -7,10 +7,11 @@
 let firstNumber: string, secondNumber: string;
 
 export class NumericalOperations {
-    private btn_AC: string = "//div[contains(text(), 'AC')]"
+    private btn_AC: string = "//div[contains(text(), 'AC')]";
+    private btn_equal: string = "//div[contains(text(), '=')]";
     private btn_multiplication: string = "//div[contains(text(), 'x')]";
-    private btn_equal: string = "//div[contains(text(), '=')]"
-    private btn_subtract: string = "//div[contains(text(), '-')]"
+    private btn_subtract: string = "//div[contains(text(), '-')]";
+    private btn_add: string = "//div[contains(text(), '+')]";
 
     /**
      * 
@@ -48,6 +49,20 @@ export class NumericalOperations {
         this.input_twoSingleDigits(value1, value2);
         cy.xpath(firstNumber).click();
         cy.xpath(this.btn_subtract).click();
+        cy.xpath(secondNumber).click();
+        cy.xpath(this.btn_equal).click();
+    }
+
+    /**
+     * User should be able to perform addition of two single digits
+     * @param value1 - input value_first clicked number
+     * @param value2 - input value_second clicked number
+     */
+    public step_add_singleDigits(value1: string, value2: string,) {
+
+        this.input_twoSingleDigits(value1, value2);
+        cy.xpath(firstNumber).click();
+        cy.xpath(this.btn_add).click();
         cy.xpath(secondNumber).click();
         cy.xpath(this.btn_equal).click();
     }
