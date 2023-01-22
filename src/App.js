@@ -125,7 +125,7 @@ function App() {
     <div >
       <div className={`${darkMode ? 'dark' : 'lite'} container`}>
         <div data-testId="numberPad" className="numberPad">
-          <div className="output">
+          <div data-testId="typeSpace" className="output">
             <div className={`${darkMode ? 'darkText' : 'liteText'} previousOperand`}>{previousOperand}</div>
             <div className="current-operand">{currentOperandTextElement}</div>
             <hr className="line1" />
@@ -137,7 +137,7 @@ function App() {
           <Operator operator="÷" onClick={handleOperatorClick} />
           <Number number={"7"} onClick={handleNumberClick} />
           <Number number={"8"} onClick={handleNumberClick} />
-          <Number number={"6"} onClick={handleNumberClick} />
+          <Number number={"9"} onClick={handleNumberClick} />
           <Operator operator="x" onClick={handleOperatorClick} />
 
           <Number number={"4"} onClick={handleNumberClick} />
@@ -152,7 +152,7 @@ function App() {
 
           <Number number={"0"} onClick={handleNumberClick} />
           <Number number={"."} onClick={handleNumberClick} />
-          <div className="data-eqaul" onClick={handleEqual}>=</div>
+          <div className="data-equal" onClick={handleEqual}>=</div>
 
           {/* Footer */}
           <div className="liteModeSymbol" style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</div>
