@@ -17,7 +17,11 @@ describe('verify numerical operations between two single digits', () => {
   })
 
   it('verify subtraction', () => {
-    calOps.step_subtract_singleDigits("8", "5")
+    calOps.step_subtract_singleDigits("8", "5");
+  })
+
+  it('verify addition', () => {
+    calOps.step_add_singleDigits("2", "7");
   })
 
 })
