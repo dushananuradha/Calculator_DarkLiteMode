@@ -135,14 +135,9 @@ function App() {
           <Operator operator="±" onClick={setPlusOrMinus} />
           <Operator operator="%" onClick={setPercentageValue} />
           <Operator operator="÷" onClick={handleOperatorClick} />
-          <div data-testId="btn.4">
-            <Number number={"7"} onClick={handleNumberClick} />
-          </div>
-          <div data-testId="btn.8">
-            <Number number={"8"} onClick={handleNumberClick} />
-          </div>
-
-          <Number number={"25"} onClick={handleNumberClick} />
+          <Number number={"7"} onClick={handleNumberClick} />
+          <Number number={"8"} onClick={handleNumberClick} />
+          <Number number={"6"} onClick={handleNumberClick} />
           <Operator operator="x" onClick={handleOperatorClick} />
 
           <Number number={"4"} onClick={handleNumberClick} />
@@ -164,7 +159,7 @@ function App() {
           <div className="modeSelector">
             <label className="switch">
               <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
-              <div className="slider round"> </div>
+              <div test-id='theme-slider' className="slider round"> </div>
             </label>
           </div>
           <div className="modeSymbol2" style={{ color: darkMode ? "#c96dfd" : "grey" }}>☽</div>
