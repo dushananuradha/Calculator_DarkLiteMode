@@ -5,6 +5,6 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    projectId: "6g81p2"
+    projectId: "6g81p2",
   },
 });
