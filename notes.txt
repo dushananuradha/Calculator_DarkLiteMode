@@ -1,0 +1,1 @@
+The record key - used to authenticate that your project is allowed to record tests to Cypress Cloud
