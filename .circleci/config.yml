@@ -9,6 +9,4 @@ workflows:
       - cypress/run:
           requires:
             - cypress/install
-          command: cy:run:master
-
-          
+          command: npm run cy:run:master
