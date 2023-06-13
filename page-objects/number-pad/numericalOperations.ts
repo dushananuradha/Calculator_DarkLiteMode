@@ -70,7 +70,7 @@ export class NumericalOperations {
     /**
      * User should be able to click on AC button to clear type space
      */
-    public step_click_AC_btn(){
+    public step_click_AC_btn() {
         cy.xpath(this.btn_AC).click();
     }
 
