@@ -1,6 +1,5 @@
 import { defineConfig } from 'cypress'
 
-
 export default defineConfig({
   e2e: {
     projectId: "6g81p2",
