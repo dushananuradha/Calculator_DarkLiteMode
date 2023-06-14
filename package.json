@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cy:open": "cypress open",
+    "cy:op": "cypress open",
     "cy:run:master": "cypress run --record --key bd2d68ab-bd16-4f23-9a80-bd5fc4cd14d3"
   },
   "eslintConfig": {

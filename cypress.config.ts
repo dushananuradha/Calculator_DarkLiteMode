@@ -1,8 +1,9 @@
 import { defineConfig } from 'cypress';
+import slackReporter = require('cypress-slack-reporter');
 
 export default defineConfig({
   "reporter": "cypress-slack-reporter",
-  "reporterOptions": {
+  "env": {
     "slackWebhookUrl": "https://hooks.slack.com/services/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"
   },
   e2e: {
